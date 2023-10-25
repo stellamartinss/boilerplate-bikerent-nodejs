@@ -5,6 +5,7 @@ import { adaptRoute } from '@/main/adapters/express-route-adapter';
 import { makeListUsersController } from '@/main/factories/make-list-users-controller';
 import { makeCreateUserController } from '@/main/factories/make-create-user-controller';
 import { makeCreateCandidateController } from '@/main/factories/make-create-candidate-controller';
+import { makeCreateRentController } from '../factories/make-create-rent-controller';
 
 export function setupRoutes(app: Express): void {
   const router = Router();
@@ -14,6 +15,7 @@ export function setupRoutes(app: Express): void {
   createListUsersRoute(router);
   createCreateUserRoute(router);
   createCreateCandidateRoute(router);
+  rentBikeRoute(router);
 }
 
 function createListBikesRoute(router: Router) {
@@ -34,4 +36,8 @@ function createCreateUserRoute(router: Router) {
 
 function createCreateCandidateRoute(router: Router) {
   router.post('/candidates', adaptRoute(makeCreateCandidateController()));
+}
+
+function rentBikeRoute(router: Router) {
+  router.post('/bike/rent', adaptRoute(makeCreateRentController()));
 }

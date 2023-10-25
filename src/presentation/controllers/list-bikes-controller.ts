@@ -8,6 +8,8 @@ export class ListBikesController implements Controller {
   async handle(request: HttpRequest): Promise<HttpResponse> {
     try {
       const candidateToken = request.token;
+      console.log('aqui')
+      console.log(request)
       const bikes = await this.useCase.perform(candidateToken);
       return {
         statusCode: 200,
