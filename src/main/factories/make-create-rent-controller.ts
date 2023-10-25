@@ -6,10 +6,8 @@ import { makeBikeRepository } from './make-bike-repository';
 
 export const makeCreateRentController = (): Controller => {
   const rentRepository = makeRentRepository();
-  const bikeRepository = makeBikeRepository();
 
   const createRentUseCase = new CreateRent(rentRepository)
-
   const createRentController = new CreateRentController(createRentUseCase);
 
   return createRentController;
