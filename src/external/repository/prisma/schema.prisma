@@ -58,6 +58,8 @@ model Rent {
   id    Int    @id @default(autoincrement())
   userId  Int  
   bikeId Int 
+  from DateTime @default(now())
+  to DateTime @default(now())
   price Float
   user User  @relation(fields: [userId], references: [id])
   bikes Bike @relation(fields: [bikeId], references: [id])

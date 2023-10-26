@@ -3,4 +3,7 @@ export interface Rent {
     userId: number;
     bikeId: number;
     price: number;
+    to: Date,
+    from: Date
+    rate?: number
 }
